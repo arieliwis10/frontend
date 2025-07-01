@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" routerLink="/">
+      <img src="assets/img/ararat_logo.png" alt="Logo" style="height: 50px;">
+    </a>
+    <!-- Botón hamburguesa -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Menú -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Inicio</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/perfil">Perfil</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="/admin">Panel Admin</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="/login">Iniciar sesión</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="/registro">Registrar</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" href="#" (click)="logout()">Cerrar sesión</a>
+        </li>
+      </ul>
+      <div class="d-flex ms-3 align-items-center navbar-cart">
+        <a routerLink="/carrito" class="btn btn-outline-primary position-relative">
+          🛒 Carrito
+          <span *ngIf="carritoCantidad > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            style="font-size:0.9em;">
+            {{ carritoCantidad }}
+          </span>
+        </a>
+        <span *ngIf="isLoggedIn && usuario" class="ms-3 fw-bold text-light">
+          <i class="bi bi-person-circle me-1"></i>{{ usuario.nombre || usuario.email }}
+        </span>
+      </div>
+    </div>
+  </div>
+</nav>

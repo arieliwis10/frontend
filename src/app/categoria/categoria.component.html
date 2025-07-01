@@ -1,0 +1,16 @@
+<main class="container py-5">
+  <h1 class="mb-4 text-center text-capitalize">{{ nombreCategoria }}</h1>
+
+  <div class="row g-4">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let producto of productos">
+      <div class="card h-100 text-center">
+        <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre" />
+        <div class="card-body">
+          <h5 class="card-title">{{ producto.nombre }}</h5>
+          <p class="card-text">{{ producto.precio | currency:'CLP' }}</p>
+          <button class="btn btn-primary" (click)="agregarAlCarrito(producto)">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

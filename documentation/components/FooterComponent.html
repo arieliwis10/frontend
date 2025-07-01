@@ -1,0 +1,494 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  FooterComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/footer/footer.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente para el pie de página global del sitio.
+Muestra información de contacto, enlaces y ubicación.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-footer</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./footer.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./footer.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+/**
+ * Componente para el pie de página global del sitio.
+ * Muestra información de contacto, enlaces y ubicación.
+ */
+@Component({
+  selector: &#x27;app-footer&#x27;,
+  templateUrl: &#x27;./footer.component.html&#x27;,
+  styleUrls: [&#x27;./footer.component.css&#x27;]
+})
+export class FooterComponent {}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;footer&gt;
+  &lt;div class&#x3D;&quot;footer-container&quot;&gt;
+    &lt;!-- Primera columna (Contacto 1) --&gt;
+    &lt;div class&#x3D;&quot;footer-column&quot;&gt;
+      &lt;img src&#x3D;&quot;assets/img/ararat_logo.png&quot; alt&#x3D;&quot;Ararat Logo&quot;&gt;
+      &lt;p&gt;Fernando Cepeda&lt;br&gt;Director Comercial&lt;/p&gt;
+      &lt;p&gt;+569 994 05462&lt;/p&gt;
+      &lt;a href&#x3D;&quot;mailto:fcepeda@araratchile.com&quot;&gt;fcepeda@araratchile.com&lt;/a&gt;&lt;br&gt;
+      &lt;a href&#x3D;&quot;mailto:ventas@araratchile.com&quot;&gt;ventas@araratchile.com&lt;/a&gt;&lt;br&gt;
+      &lt;a href&#x3D;&quot;https://www.araratchile.com&quot; target&#x3D;&quot;_blank&quot;&gt;araratchile.com&lt;/a&gt;
+      &lt;p&gt;Síguenos en:&lt;/p&gt;
+      &lt;div class&#x3D;&quot;social-icons&quot;&gt;
+        &lt;a href&#x3D;&quot;https://facebook.com&quot; target&#x3D;&quot;_blank&quot;&gt;
+          &lt;img src&#x3D;&quot;https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg&quot; alt&#x3D;&quot;Facebook&quot; style&#x3D;&quot;width: 20px; height: 20px;&quot;&gt; Facebook
+        &lt;/a&gt;
+        &lt;a href&#x3D;&quot;https://instagram.com&quot; target&#x3D;&quot;_blank&quot;&gt;
+          &lt;img src&#x3D;&quot;https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png&quot; alt&#x3D;&quot;Instagram&quot; style&#x3D;&quot;width: 20px; height: 20px;&quot;&gt; Instagram
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Segunda columna (Contacto 2) --&gt;
+    &lt;div class&#x3D;&quot;footer-column&quot;&gt;
+      &lt;img src&#x3D;&quot;assets/img/pyrotect_logo.png&quot; alt&#x3D;&quot;Pyrotect Logo&quot;&gt;
+      &lt;p&gt;Luis Villanueva&lt;br&gt;Director General&lt;/p&gt;
+      &lt;p&gt;+1 (541) 390-2526&lt;/p&gt;
+      &lt;a href&#x3D;&quot;mailto:lvillanueva@araratchile.com&quot;&gt;lvillanueva@araratchile.com&lt;/a&gt;&lt;br&gt;
+      &lt;a href&#x3D;&quot;https://www.pyrotectstore.com&quot; target&#x3D;&quot;_blank&quot;&gt;pyrotectstore.com&lt;/a&gt;
+      &lt;p&gt;Síguenos en:&lt;/p&gt;
+      &lt;div class&#x3D;&quot;social-icons&quot;&gt;
+        &lt;a href&#x3D;&quot;https://facebook.com&quot; target&#x3D;&quot;_blank&quot;&gt;Facebook&lt;/a&gt;
+        &lt;a href&#x3D;&quot;https://instagram.com&quot; target&#x3D;&quot;_blank&quot;&gt;Instagram&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Columna 3 (Ubicación) --&gt;
+    &lt;div class&#x3D;&quot;footer-column&quot;&gt;
+      &lt;h3&gt;Nuestra Ubicación&lt;/h3&gt;
+      &lt;iframe src&#x3D;&quot;https://www.google.com/maps/embed?pb&#x3D;!1m14!1m8!1m3!1d2321.200867916809!2d-70.63518586913175!3d-33.82700969862103!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9663251854176d4f%3A0x7043b6639c9208f4!2sArarat%20soldaduras!5e0!3m2!1ses!2sus!4v1728500567036!5m2!1ses!2sus&quot; allowfullscreen&#x3D;&quot;&quot; loading&#x3D;&quot;lazy&quot; referrerpolicy&#x3D;&quot;no-referrer-when-downgrade&quot;&gt;&lt;/iframe&gt;
+      &lt;p&gt;La Rinconada de Huelquén, Sitio 4&lt;br&gt;Lote B - Comuna de Paine&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;footer-bottom&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Copyright © 2023 AraratChile&lt;/strong&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./footer.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">footer {
+  background-color: #111;
+  color: white;
+  padding: 40px 0;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+.footer-column {
+  width: 30%;
+  margin-bottom: 20px;
+}
+.footer-column img {
+  max-width: 150px;
+  display: block;
+  margin-bottom: 10px;
+}
+.footer-logo {
+  max-width: 150px;
+  margin-bottom: 15px;
+}
+.footer-column p {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.footer-column a {
+  color: #00aaff;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.footer-column h3 {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.social-icons a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+.social-icons img {
+  margin-right: 10px;
+}
+.social-icons a:hover {
+  color: #3498db;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 10px;
+  background-color: #111;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: normal;
+}
+.footer-bottom strong {
+  font-size: 1em;
+  letter-spacing: normal;
+}
+.footer-column iframe {
+  width: 600px;
+  max-width: 100%;
+  height: 250px;
+  border: 0;
+}
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-column {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-column img,
+  .footer-column iframe {
+    margin: 0 auto;
+  }
+  .footer-bottom  {
+    max-width: 100%;
+  }
+  .social-icons {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .social-icons a {
+    font-size: 14px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><footer>  <div class="footer-container">    <!-- Primera columna (Contacto 1) -->    <div class="footer-column">      <img src="assets/img/ararat_logo.png" alt="Ararat Logo">      <p>Fernando Cepeda<br>Director Comercial</p>      <p>+569 994 05462</p>      <a href="mailto:fcepeda@araratchile.com">fcepeda@araratchile.com</a><br>      <a href="mailto:ventas@araratchile.com">ventas@araratchile.com</a><br>      <a href="https://www.araratchile.com" target="_blank">araratchile.com</a>      <p>Síguenos en:</p>      <div class="social-icons">        <a href="https://facebook.com" target="_blank">          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 20px; height: 20px;"> Facebook        </a>        <a href="https://instagram.com" target="_blank">          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 20px; height: 20px;"> Instagram        </a>      </div>    </div>    <!-- Segunda columna (Contacto 2) -->    <div class="footer-column">      <img src="assets/img/pyrotect_logo.png" alt="Pyrotect Logo">      <p>Luis Villanueva<br>Director General</p>      <p>+1 (541) 390-2526</p>      <a href="mailto:lvillanueva@araratchile.com">lvillanueva@araratchile.com</a><br>      <a href="https://www.pyrotectstore.com" target="_blank">pyrotectstore.com</a>      <p>Síguenos en:</p>      <div class="social-icons">        <a href="https://facebook.com" target="_blank">Facebook</a>        <a href="https://instagram.com" target="_blank">Instagram</a>      </div>    </div>    <!-- Columna 3 (Ubicación) -->    <div class="footer-column">      <h3>Nuestra Ubicación</h3>      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2321.200867916809!2d-70.63518586913175!3d-33.82700969862103!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9663251854176d4f%3A0x7043b6639c9208f4!2sArarat%20soldaduras!5e0!3m2!1ses!2sus!4v1728500567036!5m2!1ses!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>      <p>La Rinconada de Huelquén, Sitio 4<br>Lote B - Comuna de Paine</p>    </div>  </div>  <div class="footer-bottom">    <p><strong>Copyright © 2023 AraratChile</strong></p>  </div></footer></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CarritoComponent', 'selector': 'app-carrito'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RecuperarComponent', 'selector': 'app-recuperar'},{'name': 'RegistroComponent', 'selector': 'app-registro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FooterComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FooterComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

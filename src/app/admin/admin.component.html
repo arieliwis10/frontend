@@ -1,0 +1,66 @@
+<div class="container py-5">
+  <h2 class="mb-4 text-center">Panel de Administración</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Dirección</th>
+          <th>Fecha Nac.</th>
+          <th>Rol</th>
+          <th>Contraseña</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td *ngIf="editando !== usuario.email">{{ usuario.nombre }}</td>
+          <td *ngIf="editando === usuario.email">
+            <input [(ngModel)]="editData.nombre" class="form-control form-control-sm">
+          </td>
+          <td *ngIf="editando !== usuario.email">{{ usuario.apellido || '' }}</td>
+          <td *ngIf="editando === usuario.email">
+            <input [(ngModel)]="editData.apellido" class="form-control form-control-sm">
+          </td>
+          <td>{{ usuario.email }}</td>
+          <td *ngIf="editando !== usuario.email">{{ usuario.telefono || '' }}</td>
+          <td *ngIf="editando === usuario.email">
+            <input [(ngModel)]="editData.telefono" class="form-control form-control-sm">
+          </td>
+          <td *ngIf="editando !== usuario.email">{{ usuario.direccion || '' }}</td>
+          <td *ngIf="editando === usuario.email">
+            <input [(ngModel)]="editData.direccion" class="form-control form-control-sm">
+          </td>
+          <td *ngIf="editando !== usuario.email">{{ usuario.fechaNacimiento || '' }}</td>
+          <td *ngIf="editando === usuario.email">
+            <input [(ngModel)]="editData.fechaNacimiento" type="date" class="form-control form-control-sm">
+          </td>
+          <td *ngIf="editando !== usuario.email">{{ usuario.rol }}</td>
+          <td *ngIf="editando === usuario.email">
+            <select [(ngModel)]="editData.rol" class="form-select form-select-sm">
+              <option value="user">Usuario</option>
+              <option value="admin">Admin</option>
+            </select>
+          </td>
+          <td *ngIf="editando !== usuario.email">••••••••</td>
+          <td *ngIf="editando === usuario.email">
+            <input [(ngModel)]="editData.password" type="password" class="form-control form-control-sm">
+          </td>
+          <td>
+            <ng-container *ngIf="editando !== usuario.email">
+              <button class="btn btn-outline-primary btn-sm me-2" (click)="editar(usuario.email)">Editar</button>
+              <button class="btn btn-outline-danger btn-sm" (click)="eliminarUsuario(usuario.email)">Eliminar</button>
+            </ng-container>
+            <ng-container *ngIf="editando === usuario.email">
+              <button class="btn btn-success btn-sm me-2" (click)="guardar(usuario.email)">Guardar</button>
+              <button class="btn btn-secondary btn-sm" (click)="cancelar()">Cancelar</button>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

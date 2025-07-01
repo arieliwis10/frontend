@@ -1,0 +1,837 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  RecuperarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/recuperar/recuperar.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente para recuperación de contraseña.
+Permite validar el email y crear una nueva contraseña si el usuario existe.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-recuperar</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./recuperar.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./recuperar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#confirmarContrasena" >confirmarContrasena</a>
+                            </li>
+                            <li>
+                                <a href="#email" >email</a>
+                            </li>
+                            <li>
+                                <a href="#mensaje" >mensaje</a>
+                            </li>
+                            <li>
+                                <a href="#nuevaContrasena" >nuevaContrasena</a>
+                            </li>
+                            <li>
+                                <a href="#puedeCambiar" >puedeCambiar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cambiarContrasena" >cambiarContrasena</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/recuperar/recuperar.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor. Inyecta servicios de autenticación y router.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cambiarContrasena"></a>
+                    <span class="name">
+                        <span ><b>cambiarContrasena</b></span>
+                        <a href="#cambiarContrasena"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cambiarContrasena()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/recuperar/recuperar.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cambia la contraseña del usuario si los datos son válidos.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="34"
+                                    class="link-to-prism">src/app/recuperar/recuperar.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Valida el email y permite cambiar la contraseña si existe.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmarContrasena"></a>
+                    <span class="name">
+                        <span ><b>confirmarContrasena</b></span>
+                        <a href="#confirmarContrasena"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/recuperar/recuperar.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Confirmación de nueva contraseña</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="email"></a>
+                    <span class="name">
+                        <span ><b>email</b></span>
+                        <a href="#email"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/recuperar/recuperar.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Email ingresado</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mensaje"></a>
+                    <span class="name">
+                        <span ><b>mensaje</b></span>
+                        <a href="#mensaje"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/recuperar/recuperar.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mensaje de feedback</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nuevaContrasena"></a>
+                    <span class="name">
+                        <span ><b>nuevaContrasena</b></span>
+                        <a href="#nuevaContrasena"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/recuperar/recuperar.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Nueva contraseña</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="puedeCambiar"></a>
+                    <span class="name">
+                        <span ><b>puedeCambiar</b></span>
+                        <a href="#puedeCambiar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/recuperar/recuperar.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Permite mostrar el formulario de cambio de contraseña</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { AuthService } from &#x27;../services/auth.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+/**
+ * Componente para recuperación de contraseña.
+ * Permite validar el email y crear una nueva contraseña si el usuario existe.
+ */
+@Component({
+  selector: &#x27;app-recuperar&#x27;,
+  templateUrl: &#x27;./recuperar.component.html&#x27;,
+  styleUrls: [&#x27;./recuperar.component.css&#x27;]
+})
+export class RecuperarComponent {
+  /** Email ingresado */
+  email: string &#x3D; &#x27;&#x27;;
+  /** Mensaje de feedback */
+  mensaje: string &#x3D; &#x27;&#x27;;
+  /** Nueva contraseña */
+  nuevaContrasena: string &#x3D; &#x27;&#x27;;
+  /** Confirmación de nueva contraseña */
+  confirmarContrasena: string &#x3D; &#x27;&#x27;;
+  /** Permite mostrar el formulario de cambio de contraseña */
+  puedeCambiar: boolean &#x3D; false;
+
+  /**
+   * Constructor. Inyecta servicios de autenticación y router.
+   */
+  constructor(private auth: AuthService, private router: Router) {}
+
+  /**
+   * Valida el email y permite cambiar la contraseña si existe.
+   */
+  onSubmit() {
+    if (!this.email) {
+      this.mensaje &#x3D; &#x27;Por favor ingresa tu email.&#x27;;
+      this.puedeCambiar &#x3D; false;
+      return;
+    }
+    const usuarios &#x3D; this.auth.getAllUsuarios ? this.auth.getAllUsuarios() : this.auth[&#x27;getUsuarios&#x27;]();
+    const user &#x3D; usuarios.find((u: any) &#x3D;&gt; u.email &#x3D;&#x3D;&#x3D; this.email);
+    if (user) {
+      this.mensaje &#x3D; &#x27;Email válido. Ahora puedes crear una nueva contraseña.&#x27;;
+      this.puedeCambiar &#x3D; true;
+    } else {
+      this.mensaje &#x3D; &#x27;No existe una cuenta con ese email.&#x27;;
+      this.puedeCambiar &#x3D; false;
+    }
+  }
+
+  /**
+   * Cambia la contraseña del usuario si los datos son válidos.
+   */
+  cambiarContrasena() {
+    if (!this.nuevaContrasena || !this.confirmarContrasena) {
+      this.mensaje &#x3D; &#x27;Completa ambos campos de contraseña.&#x27;;
+      return;
+    }
+    if (this.nuevaContrasena !&#x3D;&#x3D; this.confirmarContrasena) {
+      this.mensaje &#x3D; &#x27;Las contraseñas no coinciden.&#x27;;
+      return;
+    }
+    if (this.nuevaContrasena.length &lt; 6) {
+      this.mensaje &#x3D; &#x27;La contraseña debe tener al menos 6 caracteres.&#x27;;
+      return;
+    }
+    // Actualizar contraseña
+    if (this.auth.updateUsuario) {
+      this.auth.updateUsuario(this.email, { password: this.nuevaContrasena });
+    } else {
+      // fallback si no existe updateUsuario
+      const usuarios &#x3D; this.auth[&#x27;getUsuarios&#x27;]();
+      const idx &#x3D; usuarios.findIndex((u: any) &#x3D;&gt; u.email &#x3D;&#x3D;&#x3D; this.email);
+      if (idx !&#x3D;&#x3D; -1) {
+        usuarios[idx].password &#x3D; this.nuevaContrasena;
+        this.auth[&#x27;setUsuarios&#x27;](usuarios);
+      }
+    }
+    this.mensaje &#x3D; &#x27;Contraseña actualizada correctamente. Redirigiendo a inicio de sesión...&#x27;;
+    this.puedeCambiar &#x3D; false;
+    this.nuevaContrasena &#x3D; &#x27;&#x27;;
+    this.confirmarContrasena &#x3D; &#x27;&#x27;;
+    setTimeout(() &#x3D;&gt; {
+      this.router.navigate([&#x27;/login&#x27;]);
+    }, 1800);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;recuperar-container d-flex justify-content-center align-items-center min-vh-100&quot; style&#x3D;&quot;background:#fff;&quot;&gt;
+  &lt;form (ngSubmit)&#x3D;&quot;onSubmit()&quot; *ngIf&#x3D;&quot;!puedeCambiar&quot; #formRecuperar&#x3D;&quot;ngForm&quot; class&#x3D;&quot;recuperar-form p-4 rounded shadow bg-white&quot; style&#x3D;&quot;min-width:340px; max-width:400px; width:100%;&quot;&gt;
+    &lt;h2 class&#x3D;&quot;mb-4 text-center text-dark&quot;&gt;Recuperar contraseña&lt;/h2&gt;
+    &lt;div *ngIf&#x3D;&quot;mensaje&quot; class&#x3D;&quot;alert alert-info text-center py-2&quot;&gt;{{ mensaje }}&lt;/div&gt;
+    &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;label class&#x3D;&quot;form-label&quot;&gt;Email&lt;/label&gt;
+      &lt;input type&#x3D;&quot;email&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;email&quot; [(ngModel)]&#x3D;&quot;email&quot; required email&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center mt-4&quot;&gt;
+      &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary w-100&quot;&gt;Validar email&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+
+  &lt;form (ngSubmit)&#x3D;&quot;cambiarContrasena()&quot; *ngIf&#x3D;&quot;puedeCambiar&quot; class&#x3D;&quot;recuperar-form p-4 rounded shadow bg-white&quot; style&#x3D;&quot;min-width:340px; max-width:400px; width:100%;&quot;&gt;
+    &lt;h2 class&#x3D;&quot;mb-4 text-center text-dark&quot;&gt;Nueva contraseña&lt;/h2&gt;
+    &lt;div *ngIf&#x3D;&quot;mensaje&quot; class&#x3D;&quot;alert alert-info text-center py-2&quot;&gt;{{ mensaje }}&lt;/div&gt;
+    &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;label class&#x3D;&quot;form-label&quot;&gt;Nueva contraseña&lt;/label&gt;
+      &lt;input type&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;nuevaContrasena&quot; name&#x3D;&quot;nuevaContrasena&quot; required minlength&#x3D;&quot;6&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;label class&#x3D;&quot;form-label&quot;&gt;Confirmar contraseña&lt;/label&gt;
+      &lt;input type&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;confirmarContrasena&quot; name&#x3D;&quot;confirmarContrasena&quot; required minlength&#x3D;&quot;6&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center mt-4&quot;&gt;
+      &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-success w-100&quot;&gt;Guardar nueva contraseña&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./recuperar.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="recuperar-container d-flex justify-content-center align-items-center min-vh-100" style="background:#fff;">  <form (ngSubmit)="onSubmit()" *ngIf="!puedeCambiar" #formRecuperar="ngForm" class="recuperar-form p-4 rounded shadow bg-white" style="min-width:340px; max-width:400px; width:100%;">    <h2 class="mb-4 text-center text-dark">Recuperar contraseña</h2>    <div *ngIf="mensaje" class="alert alert-info text-center py-2">{{ mensaje }}</div>    <div class="mb-3">      <label class="form-label">Email</label>      <input type="email" class="form-control" name="email" [(ngModel)]="email" required email>    </div>    <div class="d-flex justify-content-between align-items-center mt-4">      <button type="submit" class="btn btn-primary w-100">Validar email</button>    </div>  </form>  <form (ngSubmit)="cambiarContrasena()" *ngIf="puedeCambiar" class="recuperar-form p-4 rounded shadow bg-white" style="min-width:340px; max-width:400px; width:100%;">    <h2 class="mb-4 text-center text-dark">Nueva contraseña</h2>    <div *ngIf="mensaje" class="alert alert-info text-center py-2">{{ mensaje }}</div>    <div class="mb-3">      <label class="form-label">Nueva contraseña</label>      <input type="password" class="form-control" [(ngModel)]="nuevaContrasena" name="nuevaContrasena" required minlength="6">    </div>    <div class="mb-3">      <label class="form-label">Confirmar contraseña</label>      <input type="password" class="form-control" [(ngModel)]="confirmarContrasena" name="confirmarContrasena" required minlength="6">    </div>    <div class="d-flex justify-content-between align-items-center mt-4">      <button type="submit" class="btn btn-success w-100">Guardar nueva contraseña</button>    </div>  </form></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CarritoComponent', 'selector': 'app-carrito'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RecuperarComponent', 'selector': 'app-recuperar'},{'name': 'RegistroComponent', 'selector': 'app-registro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'RecuperarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RecuperarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

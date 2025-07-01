@@ -1,0 +1,29 @@
+<div class="recuperar-container d-flex justify-content-center align-items-center min-vh-100" style="background:#fff;">
+  <form (ngSubmit)="onSubmit()" *ngIf="!puedeCambiar" #formRecuperar="ngForm" class="recuperar-form p-4 rounded shadow bg-white" style="min-width:340px; max-width:400px; width:100%;">
+    <h2 class="mb-4 text-center text-dark">Recuperar contraseña</h2>
+    <div *ngIf="mensaje" class="alert alert-info text-center py-2">{{ mensaje }}</div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" name="email" [(ngModel)]="email" required email>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <button type="submit" class="btn btn-primary w-100">Validar email</button>
+    </div>
+  </form>
+
+  <form (ngSubmit)="cambiarContrasena()" *ngIf="puedeCambiar" class="recuperar-form p-4 rounded shadow bg-white" style="min-width:340px; max-width:400px; width:100%;">
+    <h2 class="mb-4 text-center text-dark">Nueva contraseña</h2>
+    <div *ngIf="mensaje" class="alert alert-info text-center py-2">{{ mensaje }}</div>
+    <div class="mb-3">
+      <label class="form-label">Nueva contraseña</label>
+      <input type="password" class="form-control" [(ngModel)]="nuevaContrasena" name="nuevaContrasena" required minlength="6">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Confirmar contraseña</label>
+      <input type="password" class="form-control" [(ngModel)]="confirmarContrasena" name="confirmarContrasena" required minlength="6">
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <button type="submit" class="btn btn-success w-100">Guardar nueva contraseña</button>
+    </div>
+  </form>
+</div>

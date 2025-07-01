@@ -1,0 +1,22 @@
+.registro-container {
+  min-height: 100vh;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 60px;
+}
+
+.registro-form {
+  min-width: 340px;
+  max-width: 400px;
+  width: 100%;
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem;
+}
+
+.registro-form h2 {
+  color: #222;
+}

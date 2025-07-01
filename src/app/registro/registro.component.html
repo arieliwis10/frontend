@@ -1,0 +1,46 @@
+<div class="registro-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="registro-form">
+    <h2 class="mb-4 text-center">Crear cuenta</h2>
+    <div *ngIf="error" class="alert alert-danger text-center py-2">{{ error }}</div>
+    <div *ngIf="exito" class="alert alert-success text-center py-2">{{ exito }}</div>
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre">
+      <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" class="text-danger small">Nombre requerido</div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Apellido</label>
+      <input type="text" class="form-control" placeholder="Apellido" formControlName="apellido">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" placeholder="Email" formControlName="email">
+      <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-danger small">Email inválido</div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Fecha de nacimiento</label>
+      <input type="date" class="form-control" formControlName="fechaNacimiento">
+      <div *ngIf="form.get('fechaNacimiento')?.errors?.['minEdad'] && form.get('fechaNacimiento')?.touched" class="text-danger small">Debes ser mayor de 13 años</div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Contraseña</label>
+      <input type="password" class="form-control" placeholder="Contraseña" formControlName="password">
+      <div *ngIf="form.get('password')?.errors?.['pattern'] && form.get('password')?.touched" class="text-danger small">
+        Mínimo 1 mayúscula y 1 número
+      </div>
+      <div *ngIf="form.get('password')?.errors?.['minlength'] && form.get('password')?.touched" class="text-danger small">
+        Mínimo 8 caracteres
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Confirmar contraseña</label>
+      <input type="password" class="form-control" placeholder="Confirmar contraseña" formControlName="confirmPassword">
+      <div *ngIf="form.errors?.['passwordsMismatch'] && form.get('confirmPassword')?.touched" class="text-danger small">Las contraseñas no coinciden</div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <button type="submit" class="btn btn-primary w-50 me-2">Registrar</button>
+      <button type="button" class="btn btn-outline-secondary w-50 ms-2" (click)="onReset()">Limpiar</button>
+    </div>
+  </form>
+</div>
+

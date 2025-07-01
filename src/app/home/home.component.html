@@ -1,0 +1,87 @@
+<main>
+  <!-- Carrusel de imágenes -->
+  <section class="carousel">
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <img [src]="carouselImages[currentSlide]" alt="Imagen carrusel">
+      </div>
+    </div>
+
+    <!-- Flechas de navegación -->
+    <a class="prev" (click)="moveSlide(-1)">&#10094;</a>
+    <a class="next" (click)="moveSlide(1)">&#10095;</a>
+
+    <!-- Indicadores -->
+    <div class="carousel-indicators">
+      <span class="indicator" *ngFor="let img of carouselImages; let i = index"
+            [class.active]="i === currentSlide" (click)="setCurrentSlide(i)"></span>
+    </div>
+  </section>
+
+  <!-- Sección de trabajos -->
+  <section class="works">
+    <h2 class="mb-4 text-center">Nuestras Categorías</h2>
+    <div class="row g-4 justify-content-center">
+        <!-- Columna 1 -->
+        <div class="col-6 col-md-4 col-lg-2">
+            <a [routerLink]="['/categoria', 'buggys']" class="service-link">
+                <div class="p-3 border rounded shadow-sm h-100">
+                    <img src="assets/img/img1.jpg" alt="Accesorios para Buggys" class="img-fluid mb-2">
+                    <p class="fw-bold text-dark">Accesorios para Buggys</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Columna 2 -->
+        <div class="col-6 col-md-4 col-lg-2">
+            <a [routerLink]="['/categoria', 'iluminacion']" class="service-link">
+                <div class="p-3 border rounded shadow-sm h-100">
+                    <img src="assets/img/categoria_iluminacion.jpg" alt="Iluminación" class="img-fluid mb-2">
+                    <p class="fw-bold text-dark">Iluminación</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Columna 3 -->
+        <div class="col-6 col-md-4 col-lg-2">
+            <a [routerLink]="['/categoria', 'carroceria']" class="service-link">
+                <div class="p-3 border rounded shadow-sm h-100">
+                    <img src="assets/img/categoria_carroceria.jpg" alt="Carrocería" class="img-fluid mb-2">
+                    <p class="fw-bold text-dark">Carrocería</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Columna 4 -->
+        <div class="col-6 col-md-4 col-lg-2">
+            <a [routerLink]="['/categoria', 'motor']" class="service-link">
+                <div class="p-3 border rounded shadow-sm h-100">
+                    <img src="assets/img/categoria_motor.jpg" alt="Motor" class="img-fluid mb-2">
+                    <p class="fw-bold text-dark">Motor</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Columna 5 -->
+        <div class="col-6 col-md-4 col-lg-2">
+            <a [routerLink]="['/categoria', 'confort']" class="service-link">
+                <div class="p-3 border rounded shadow-sm h-100">
+                    <img src="assets/img/categoria_confort.jpg" alt="Accesorios de confort" class="img-fluid mb-2">
+                    <p class="fw-bold text-dark">Accesorios de confort</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+  <!-- Sección de certificaciones -->
+  <section class="certifications">
+    <h2>Nuestras Certificaciones</h2>
+    <div class="certifications-grid">
+      <div class="certification-item" *ngFor="let cert of certificaciones">
+        <img [src]="cert" alt="Certificación" />
+      </div>
+    </div>
+  </section>
+</main>
+
