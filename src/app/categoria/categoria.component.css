@@ -2,6 +2,53 @@ main.container {
   padding: 40px 0 60px 0;
   min-height: 80vh;
 }
+
+.form-producto {
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 18px 24px;
+  margin-bottom: 24px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form-producto .row {
+  align-items: center;
+}
+.form-producto input {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 16px 18px;
+  margin-bottom: 0;
+  font-size: 1.15rem;
+  min-width: 220px;
+}
+.form-producto button {
+  min-width: 100px;
+}
+.form-edicion {
+  background: #fffbe6;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #FFD70022;
+  padding: 14px 18px;
+  margin-top: 10px;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+.form-edicion input {
+  border-radius: 8px;
+  border: 1px solid #FFD700;
+  padding: 16px 18px;
+  font-size: 1.15rem;
+  min-width: 220px;
+}
+.form-edicion button {
+  min-width: 90px;
+}
 .categoria-title {
   font-size: 2.2rem;
   font-weight: bold;

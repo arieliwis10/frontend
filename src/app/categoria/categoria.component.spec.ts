@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CategoriaComponent } from './categoria.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ActivatedRoute } from '@angular/router';
 import { CategoriaService } from 'src/app/services/categoria.service';
 import { CarritoService } from 'src/app/services/carrito.service';
@@ -17,6 +18,7 @@ describe('CategoriaComponent', () => {
     carritoServiceSpy = jasmine.createSpyObj('CarritoService', ['agregarProducto']);
     activatedRouteStub = { paramMap: of({ get: () => 'categoria1' }) };
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [CategoriaComponent],
       providers: [
         { provide: CategoriaService, useValue: categoriaServiceSpy },
@@ -37,7 +39,7 @@ describe('CategoriaComponent', () => {
   });
 
   it('debería cargar productos de la categoría', () => {
-    categoriaServiceSpy.getProductos.and.returnValue([{ nombre: 'Producto 1' }]);
+    categoriaServiceSpy.getProductos.and.returnValue(of([{ nombre: 'Producto 1' }]));
     component.ngOnInit();
     expect(component.productos.length).toBeGreaterThanOrEqual(0);
   });
